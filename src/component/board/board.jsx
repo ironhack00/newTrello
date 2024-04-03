@@ -8,7 +8,8 @@ const Board = () => {
     const [people, setPeople] = useState([
         { name: 'person1', id: 1 },
         { name: 'person2', id: 2 },
-        { name: 'person3', id: 3 }
+        { name: 'person3', id: 3 },
+        { name: 'person4', id: 4 }
     ]);
 
     const handleDragEnd = () => {

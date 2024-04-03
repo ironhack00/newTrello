@@ -4,7 +4,7 @@
     border-radius: 8px;
     width: 33%; /* Ancho del 33% */
     max-width: 300px; /* Ancho máximo para evitar que se expandan demasiado en pantallas grandes */
-    min-width: 300px;
+    min-width: 250px;
     margin: 0 8px; /* Agrega margen a los lados para separar las columnas */
     box-sizing: border-box; /* Incluye el padding y el border en el ancho total */
   }

@@ -22,9 +22,9 @@ const Column = () => {
 
   return (
     <div className={`bg-white shadow-md rounded-lg p-4 my-2 md:my-4 w-full md:w-64 relative ${styles.column}`}>
-      <button className={` absolute top-0 right-0 text-gray-900 p-1 rounded-full bg-blue-500 hover:bg-red-500 transition-colors ease-in-out transform hover:scale-110 z-10`}>
+      <button className={` absolute top-0 right-0 text-gray-900 p-1 rounded-full bg-blue-300 hover:bg-red-500 transition-colors ease-in-out transform hover:scale-110 z-10`}>
         <svg
-          className="w-5 h-5"
+          className="w-3 h-3"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
