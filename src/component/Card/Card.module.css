@@ -1,0 +1,10 @@
+
+    .button {
+        /* Otras propiedades CSS */
+        transition: transform 0.5s ease-in-out, background-color 0.8s ease-in-out; /* Añade la transición del color */
+      }
+      
+      .button:hover {
+        transform: scale(1.1);
+        background-color: #ff4d4d; /* Cambia al color de fondo deseado en hover */
+      }
