@@ -17,10 +17,13 @@ const Board = () => {
     }
 
     return (
+        <>
+        <h1 className={styles.h1}>trello</h1>
         <DndContext
             collisionDetection={closestCenter}
             onDragEnd={handleDragEnd}
         >
+            
             <div className={styles.boardContainer}>
                 <SortableContext
                     items={people}
@@ -33,6 +36,7 @@ const Board = () => {
                 </SortableContext>
             </div>
         </DndContext>
+    </>                        
     );
 }
 
