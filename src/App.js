@@ -1,10 +1,12 @@
+import React from 'react';
 import Board from './component/board/board';
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   return (
     <div className="App">
-      <Board/>
+      <h1 className={styles.h1}>Trello</h1>
+      <Board />
     </div>
   );
 }

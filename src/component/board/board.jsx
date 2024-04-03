@@ -9,7 +9,12 @@ const Board = () => {
         { name: 'person1', id: 1 },
         { name: 'person2', id: 2 },
         { name: 'person3', id: 3 },
-        { name: 'person4', id: 4 }
+        { name: 'person4', id: 4 },
+        { name: 'person4', id: 5 },
+        { name: 'person4', id: 7 },
+        { name: 'person4', id: 8 },
+        { name: 'person4', id: 9 },
+       
     ]);
 
     const handleDragEnd = () => {
@@ -17,8 +22,6 @@ const Board = () => {
     }
 
     return (
-        <>
-        <h1 className={styles.h1}>trello</h1>
         <DndContext
             collisionDetection={closestCenter}
             onDragEnd={handleDragEnd}
@@ -35,8 +38,7 @@ const Board = () => {
                     ))}
                 </SortableContext>
             </div>
-        </DndContext>
-    </>                        
+        </DndContext>          
     );
 }
 

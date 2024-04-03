@@ -1,16 +1,7 @@
-.h2{
-    color: white;
-}
-
 .boardContainer {
     display: flex;
     gap: 16px; /* Espacio entre las columnas */
+    margin-top: 10%;
 }
 
-.h1{
-    text-align: center;
-    font-size: 250%;
-    background-color: rgba(66, 58, 58, 0.409);
-}
 
-  
