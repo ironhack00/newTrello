@@ -1,3 +1,9 @@
 .h2{
     color: white;
 }
+
+.boardContainer {
+    display: flex;
+    gap: 16px; /* Espacio entre las columnas */
+}
+

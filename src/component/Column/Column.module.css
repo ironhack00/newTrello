@@ -1,0 +1,26 @@
+.column {
+    background-color: #f3f4f6;
+    padding: 16px;
+    border-radius: 8px;
+    width: 33%; /* Ancho del 33% */
+    max-width: 300px; /* Ancho máximo para evitar que se expandan demasiado en pantallas grandes */
+    min-width: 300px;
+    margin: 0 8px; /* Agrega margen a los lados para separar las columnas */
+    box-sizing: border-box; /* Incluye el padding y el border en el ancho total */
+  }
+  
+  
+  .title {
+    background-color: #e5e7eb;
+    padding: 8px;
+    border-radius: 4px;
+    color: black;
+    overflow-wrap: break-word; /* Propiedad para permitir saltos de línea dentro de palabras */
+    word-wrap: break-word; /* Fallback para navegadores más antiguos */
+    max-width: 100%; /* Ancho máximo del título */
+  }
+  
+  .blackBackground {
+    background-color: rgba(0, 0, 0, 0.386);
+  }
+  
