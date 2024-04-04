@@ -1,5 +1,10 @@
 import axios from 'axios';
 
-const createNote = ()=>{
-    
-}
+
+export const createNote = ( payload )=>{
+    console.log('llegamos a actions', payload)
+    return{
+        type: 'CREARNOTA',
+        payload: payload
+    }
+};

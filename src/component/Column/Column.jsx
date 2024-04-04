@@ -1,11 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
 import Card from '../Card/Card';
 import styles from './Column.module.css'; // Importa el archivo de estilos
+import { createNote } from '../../reducer/actions'
+import { useSelector, useDispatch } from 'react-redux';
 
 const Column = () => {
+
+  const dispatch = useDispatch();
+  const Note = useSelector(state => state.nota);
+  console.log('esto tiene note', Note)
+
   const [title, setTitle] = useState('Título de la Columna');
+  const [note, setNote] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const [isCreatingNote, setIsCreatingNote] = useState(false); // Nuevo estado para manejar la creación de notas
   const titleRef = useRef(null);
+  const noteRef = useRef(null); // Ref para el área de texto de la nota
   const columnRef = useRef(null);
 
   useEffect(() => {
@@ -37,6 +47,21 @@ const Column = () => {
 
   const handleSave = () => {
     setIsEditing(false);
+  };
+
+  const clickCreateNote = (event) => {
+    setIsCreatingNote(true); // Activar el estado para crear nota
+    console.log(event)
+  };
+
+  const handleNoteChange = () => {
+    setNote(noteRef.current.value); // Actualizar el estado de la nota al cambiar el contenido del área de texto
+  };
+
+  const handleNoteSave = () => {
+    setIsCreatingNote(false); // Desactivar el estado de creación de nota al guardar
+    console.log("Nota guardada:", note); // Aquí puedes hacer lo que quieras con la nota, por ejemplo, enviarla a una base de datos
+    dispatch(createNote(note))
   };
 
   return (
@@ -82,10 +107,38 @@ const Column = () => {
       </div>
       
       <div className="flex flex-col gap-4">
-        <Card />
-        <Card />
-        
+        {
+          Note && Note.map( (not, index) =>{
+            return(
+              <Card key={index} name={not}/>
+            )
+          } )
+        }
       </div>
+
+      {/* Condicionalmente renderizamos el área de texto de la nota cuando se está creando una nota */}
+      {isCreatingNote && (
+        <div className={`bg-gray-700 rounded-lg p-4 ${styles.blackBackground}`}>
+          <textarea
+            ref={noteRef}
+            className={`text-white font-semibold mb-2 border-b border-gray-400 focus:outline-none focus:border-blue-500 ${styles.noteTextarea}`} // Se agregó la clase styles.noteTextarea
+            placeholder="Escribe tu nota aquí..."
+            onChange={handleNoteChange}
+          />
+          <button
+            className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mr-2`}
+            onClick={handleNoteSave}
+          >
+            Guardar
+          </button>
+        </div>
+      )}
+
+      {/* Botón para crear una nueva nota */}
+      {!isCreatingNote && (
+        <button className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mr-2 ${styles.createNote}`} 
+        onClick={  e => clickCreateNote(e) }>Crear nota</button>
+      )}
     </div>
   );
 };

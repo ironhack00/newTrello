@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import styles from './Card.module.css';
 
 const Card = ({ name }) => {
-  const [content, setContent] = useState('hola');
+
+  console.log('estamos en card', name)
+
+  const [content, setContent] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const contentRef = useRef(null);
 
@@ -59,7 +62,7 @@ const Card = ({ name }) => {
             className={`text-gray-700 mb-2 cursor-pointer ${isEditing ? 'hidden' : 'block'}`}
             onClick={handleContentClick}
           >
-            {content}
+            {name}
           </p>
         </div>
       </div>

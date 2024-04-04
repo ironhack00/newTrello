@@ -28,3 +28,10 @@
     max-height: 80vh;
     overflow-y: auto;
   }
+
+  
+  .noteTextarea {
+    resize: none; /* Evita que el textarea se pueda estirar verticalmente */
+    color: black;
+  }
+  
