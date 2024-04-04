@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Card from '../Card/Card';
 import styles from './Column.module.css'; // Importa el archivo de estilos
 
@@ -6,6 +6,25 @@ const Column = () => {
   const [title, setTitle] = useState('Título de la Columna');
   const [isEditing, setIsEditing] = useState(false);
   const titleRef = useRef(null);
+  const columnRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const column = columnRef.current;
+      if (column.scrollHeight > 0.8 * window.innerHeight) {
+        column.classList.add(styles.scrollable);
+      } else {
+        column.classList.remove(styles.scrollable);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial scroll position
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleTitleClick = () => {
     setIsEditing(true);
@@ -21,7 +40,7 @@ const Column = () => {
   };
 
   return (
-    <div className={`bg-white shadow-md rounded-lg p-4 my-2 md:my-4 w-full md:w-64 relative ${styles.column}`}>
+    <div ref={columnRef} className={`bg-white shadow-md rounded-lg p-4 my-2 md:my-4 w-full md:w-64 relative ${styles.column}`}>
       <button className={` absolute top-0 right-0 text-gray-900 p-1 rounded-full bg-blue-300 hover:bg-red-500 transition-colors ease-in-out transform hover:scale-110 z-10`}>
         <svg
           className="w-3 h-3"
@@ -63,9 +82,6 @@ const Column = () => {
       </div>
       
       <div className="flex flex-col gap-4">
-        <Card />
-        <Card />
-        <Card />
         <Card />
         <Card />
         

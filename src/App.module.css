@@ -1,7 +1,7 @@
 .h1 {
   font-size: 3rem; /* Tamaño de fuente grande para dispositivos de escritorio */
- top: 0;
- left: 50%;
+  top: 0;
+  left: 50%;
   position: fixed;
 }
 

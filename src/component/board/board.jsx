@@ -11,9 +11,7 @@ const Board = () => {
         { name: 'person3', id: 3 },
         { name: 'person4', id: 4 },
         { name: 'person4', id: 5 },
-        { name: 'person4', id: 7 },
-        { name: 'person4', id: 8 },
-        { name: 'person4', id: 9 },
+     
        
     ]);
 

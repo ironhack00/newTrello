@@ -24,3 +24,7 @@
     background-color: rgba(0, 0, 0, 0.386);
   }
   
+  .scrollable {
+    max-height: 80vh;
+    overflow-y: auto;
+  }

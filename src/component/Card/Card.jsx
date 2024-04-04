@@ -25,7 +25,7 @@ const Card = ({ name }) => {
       <div className="bg-white shadow-md rounded-lg w-full md:w-64 relative">
         <button className={`${styles.button} absolute top-2 right-2 text-gray-900 p-1 rounded-full bg-blue-500 hover:bg-red-500 transition-colors ease-in-out transform hover:scale-110 z-10`}>
           <svg
-            className="w-5 h-5"
+            className="w-3 h-3"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
