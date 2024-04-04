@@ -4,11 +4,11 @@ import styles from './Column.module.css'; // Importa el archivo de estilos
 import { createNote } from '../../reducer/actions'
 import { useSelector, useDispatch } from 'react-redux';
 
-const Column = () => {
+const Column = ({ columnId }) => { // Agrega un prop para pasar el ID de la columna
 
   const dispatch = useDispatch();
-  const Note = useSelector(state => state.nota);
-  console.log('esto tiene note', Note)
+  const notes = useSelector(state => state.nota);
+  console.log('esto tiene note', notes)
 
   const [title, setTitle] = useState('Título de la Columna');
   const [note, setNote] = useState('');
@@ -61,7 +61,7 @@ const Column = () => {
   const handleNoteSave = () => {
     setIsCreatingNote(false); // Desactivar el estado de creación de nota al guardar
     console.log("Nota guardada:", note); // Aquí puedes hacer lo que quieras con la nota, por ejemplo, enviarla a una base de datos
-    dispatch(createNote(note))
+    dispatch(createNote({ content: note, columnId }));
   };
 
   return (
@@ -108,11 +108,11 @@ const Column = () => {
       
       <div className="flex flex-col gap-4">
         {
-          Note && Note.map( (not, index) =>{
-            return(
-              <Card key={index} name={not}/>
-            )
-          } )
+          notes && notes
+            .filter(note => note.columnId === columnId) // Filtra las notas por el ID de la columna
+            .map((note, index) => (
+              <Card key={index} name={note.content}/>
+            ))
         }
       </div>
 

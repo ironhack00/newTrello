@@ -4,4 +4,10 @@
     margin-top: 5%;
 }
 
+.buttonCrearColumna{
+    background-color: grey;
+    padding: 10px;
+    border-radius: 4px;
+    /* margin-left: 20%; */
+}
 

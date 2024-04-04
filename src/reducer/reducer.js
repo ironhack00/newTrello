@@ -1,7 +1,8 @@
 
 
 const initialState = {
-   nota: []
+   nota: [],
+   column: []
 }
 
 function rootReducer(state = initialState, action ){
@@ -12,6 +13,12 @@ function rootReducer(state = initialState, action ){
                 ...state,
                 nota: [...state.nota, action.payload]
             };
+
+        case 'CREARPRIMERCOLUMNA':
+        return {
+            ...state,
+            column: [...state.column, {}]
+        };
 
         default:
             return state;

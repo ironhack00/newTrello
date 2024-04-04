@@ -8,3 +8,10 @@ export const createNote = ( payload )=>{
         payload: payload
     }
 };
+
+export const crearPrimerColumna = ()=>{
+    return{
+        type: 'CREARPRIMERCOLUMNA',
+    }
+};
+
