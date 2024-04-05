@@ -1,10 +1,26 @@
+.card {
+  margin: 5px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: yellow; 
+  margin-top: 5px;
+  border-radius: 5px;
+  padding-left: 5px;
+  overflow: auto;
+  color: black;
+}
 
-    .button {
-        /* Otras propiedades CSS */
-        transition: transform 0.5s ease-in-out, background-color 0.8s ease-in-out; /* Añade la transición del color */
-      }
-      
-      .button:hover {
-        transform: scale(1.1);
-        background-color: #ff4d4d; /* Cambia al color de fondo deseado en hover */
-      }
+/* Personalización del scroll */
+.card::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar */
+  height: 5px;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Color del scrollbar */
+  border-radius: 4px; /* Borde del scrollbar */
+}
+
+.card::-webkit-scrollbar-track {
+  background-color: transparent; /* Color de fondo del scrollbar */
+}

@@ -1,37 +1,58 @@
 .column {
-    background-color: #f3f4f6;
-    padding: 16px;
-    border-radius: 8px;
-    width: 33%; /* Ancho del 33% */
-    max-width: 300px; /* Ancho máximo para evitar que se expandan demasiado en pantallas grandes */
-    min-width: 250px;
-    margin: 0 8px; /* Agrega margen a los lados para separar las columnas */
-    box-sizing: border-box; /* Incluye el padding y el border en el ancho total */
+  overflow-y: auto;
+  scrollbar-width: none; /* Oculta el scrollbar en Firefox */
+  -ms-overflow-style: none; /* Oculta el scrollbar en Internet Explorer/Edge */
+}
+
+.column::-webkit-scrollbar {
+  display: none; /* Oculta el scrollbar en Chrome y Safari */
+}
+  .addCard {
+    margin-top: 8px;
   }
   
-  
-  .title {
-    background-color: #e5e7eb;
+  .input {
+    width: 100%;
     padding: 8px;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: none;
     color: black;
-    overflow-wrap: break-word; /* Propiedad para permitir saltos de línea dentro de palabras */
-    word-wrap: break-word; /* Fallback para navegadores más antiguos */
-    max-width: 100%; /* Ancho máximo del título */
+    overflow-wrap: break-word; /* Esta propiedad maneja el desbordamiento de palabras */
   }
   
-  .blackBackground {
-    background-color: rgba(0, 0, 0, 0.386);
+  
+  .button {
+    margin-top: 8px;
+    background-color: #5aac44;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    cursor: pointer;
   }
   
-  .scrollable {
-    max-height: 80vh;
-    overflow-y: auto;
+  .button:hover {
+    background-color: #61bd4f;
+  }
+  
+  .titleInput{
+    color: black;
   }
 
-  
-  .noteTextarea {
-    resize: none; /* Evita que el textarea se pueda estirar verticalmente */
-    color: black;
+  .a {
+    overflow: scroll;
   }
-  
+
+  .botones{
+    display: flex;
+    justify-content: space-around;
+    
+  }
+
+.h3{
+  text-align: center;
+  margin-bottom: 8px;
+  background-color: #5bac4454;
+  padding: 4px;
+}

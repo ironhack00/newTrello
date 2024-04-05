@@ -1,0 +1,10 @@
+.buttonAddColumn{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    color: black;
+}
+
+.add{
+    background-color: aqua;
+}
