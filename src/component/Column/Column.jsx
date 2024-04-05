@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCard, editColumnTitle } from '../../reducer/actions';
+import { addCard, editColumnTitle, editCardText } from '../../reducer/actions';
 import Card from '../Card/Card';
 import styles from './Column.module.css';
+
 
 const Column = ({ title: initialTitle, columnId }) => {
   const dispatch = useDispatch();
   const column = useSelector(state => state.columns.find(column => column.id === columnId));
   const [newCardText, setNewCardText] = useState('');
-  const [newTitle, setNewTitle] = useState(initialTitle || 'Default Title'); // Utilizar un título por defecto si no se especifica ninguno
+  const [newTitle, setNewTitle] = useState(initialTitle || 'Default Title');
   const [isEditing, setIsEditing] = useState(false);
   const [showTextArea, setShowTextArea] = useState(false);
-
-  console.log(column,' vamos a ver que onda')
+  const [editingCardId, setEditingCardId] = useState(null); // Nuevo estado para almacenar el ID de la tarjeta en edición
 
   const handleAddCardClick = () => {
     setShowTextArea(true);
@@ -36,11 +36,20 @@ const Column = ({ title: initialTitle, columnId }) => {
   };
 
   const handleSaveTitle = () => {
-    if (newTitle.trim() === '') { // Verificar si se ingresó un título nuevo
-      setNewTitle('Default Title'); // Si no se ingresó ningún título, utilizar el título por defecto
+    if (newTitle.trim() === '') {
+      setNewTitle('Default Title');
     }
     dispatch(editColumnTitle(columnId, newTitle));
     setIsEditing(false);
+  };
+
+  const handleEditCardText = (cardId, newText) => {
+    dispatch(editCardText(columnId, cardId, newText));
+    setEditingCardId(null); // Restablecer el estado de la tarjeta en edición
+  };
+
+  const handleCardDoubleClick = (cardId) => { // Función para manejar el doble clic en una tarjeta y habilitar la edición de su texto
+    setEditingCardId(cardId);
   };
 
   return (
@@ -63,7 +72,13 @@ const Column = ({ title: initialTitle, columnId }) => {
           )}
         </div>
       {column.cards.map(card => (
-        <Card key={card.id} text={card.text} />
+        <Card
+          key={card.id}
+          text={card.text}
+          onEdit={(newText) => handleEditCardText(card.id, newText)}
+          onDoubleClick={() => handleCardDoubleClick(card.id)} // Agregar el manejador de doble clic en la tarjeta
+          isEditing={editingCardId === card.id} // Pasar el estado de edición de la tarjeta a la tarjeta individual
+        />
       ))}
       {showTextArea && (
         <div style={{ marginTop: '10px' }}>
