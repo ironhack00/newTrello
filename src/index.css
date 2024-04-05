@@ -13,3 +13,17 @@ body{
   background: #202020;
   color: white;
 }
+
+body::-webkit-scrollbar {
+  width: 10px; /* Ancho del scrollbar */
+  height: 1rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #9298d1; /* Color del scrollbar */
+  border-radius: 8px; /* Borde del scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgb(243, 247, 5); /* Color de fondo del scrollbar */
+}
